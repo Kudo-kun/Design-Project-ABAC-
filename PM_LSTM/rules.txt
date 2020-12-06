@@ -1,0 +1,6 @@
+Professor ECE Instructor_incharge;Quiz ECE;7
+Assistant_professor CSE Instructor;Comprehensive CSE;5
+Teaching_assistant CSE;Comprehensive CSE;1
+Teaching_assistant CSE;Comprehensive ECE;0
+Student EEE;Quiz EEE;0
+Associate_professor Mechanical Head_of_department Instructor;Mid_term Mechanical;7
