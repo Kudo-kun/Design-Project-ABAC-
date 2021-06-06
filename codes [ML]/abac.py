@@ -5,17 +5,14 @@ from time import time
 with open("sub_data.csv", 'r') as f:
     u_reader = reader(f)
     sub_data = list(u_reader)
-    f.close()
 
 with open("obj_data.csv", 'r') as f:
     o_reader = reader(f)
     obj_data = list(o_reader)
-    f.close()
 
 with open("pol_data.csv", 'r') as f:
     r_reader = reader(f)
     pol_data = list(r_reader)
-    f.close()
 
 def eval_rule(rule, so_pair):
     for i in range(len(rule)):
@@ -40,12 +37,11 @@ for i in range(1, len(sub_data)):
     for j in range(1, len(obj_data)):
         temp_sub = ','.join(sub_data[i])
         temp_obj = ','.join(obj_data[j])
-        curr_row = "{};{};{}".format(temp_sub, temp_obj, int(acm[i-1][j-1]))
+        curr_row = f"{temp_sub};{temp_obj};{int(acm[i-1][j-1])}"
         training_data.append(curr_row)
 
 training_data = list(set(training_data))
 with open("ACM.txt", 'w') as f:
     f.write('\n'.join(training_data))
-    f.close()
 
 print(f"Runtime of the program is {time() - start}")

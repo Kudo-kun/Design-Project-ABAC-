@@ -6,13 +6,12 @@ with open("ACM.txt", 'r') as f:
         (ua, oa, _) = line.split(';')
         for x in ua.split(','):
             if x.isnumeric():
-                x = "year-{}".format(x)
+                x = f"year-{x}"
             UA.append(x)
         for x in oa.split(','):
             if x.isnumeric():
-                x = "year-{}".format(x)
+                x = f"year-{x}"
             OA.append(x)
-    f.close()
     
 UAD = {k: v for v, k in enumerate(list(set(UA)))}
 OAD = {k: v for v, k in enumerate(list(set(OA)))}
@@ -27,13 +26,11 @@ with open("ACM.txt", 'r') as f:
         pos += (1 if p == "1\n" else 0)
         ua = [str(UAD[fun(x)] + 1) for x in ua.split(',')]
         oa = [str(OAD[fun(x)] + 1) for x in oa.split(',')]
-        row = "{};{};{}".format(','.join(ua), ','.join(oa), p)
+        row = f"{','.join(ua)};{','.join(oa)};{p}"
         rows.append(row)
-    f.close()
 
 with open("final_data.txt", 'w') as f:
     f.write(''.join(rows))
-    f.close()
 
 neg = total_rules-pos
 print(pos, neg)
