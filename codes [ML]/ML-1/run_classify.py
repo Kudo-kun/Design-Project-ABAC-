@@ -1,9 +1,12 @@
+import argparse
 from numpy import array
-import matplotlib.pyplot as plt
 from ml_models import Classifier
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score, precision_score, recall_score
-plt.style.use("ggplot")
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+
+parser = argparse.ArgumentParser()
+parser.add_argument("-i", type=str, help="input file for classification")
+args = parser.parse_args()
 
 def data_preprocessor(fname):
     uvs, ovs, Np = 16, 20, 1
@@ -19,13 +22,12 @@ def data_preprocessor(fname):
         for i in OA.split(','):
             temp_o[int(i)] = 1
         X.append(temp_u + temp_o)
-        # X.append([int(a) for a in UA.split(',')] + [int(a) for a in OA.split(',')])
         Y.append(int(P))
     return (array(X), array(Y))
 
 
-X, Y = data_preprocessor("final_data.txt")
-Xtrain, Xtest, Ytrain, Ytest = train_test_split(X, Y, test_size=0.2)
+X, Y = data_preprocessor(args.i)
+Xtrain, Xtest, Ytrain, Ytest = train_test_split(X, Y, test_size=0.3)
 
 models = ["SVM", "LR", "NB", "DT", "RF", "xgboost", "gradboost", "adaboost", "MLP"]
 for model in models:
@@ -36,4 +38,5 @@ for model in models:
     acc = accuracy_score(Ytest, pred)
     pre = precision_score(Ytest, pred)
     rec = recall_score(Ytest, pred)
-    print(f"accuracy: {acc:.2f}\nprecision: {pre:.2f}\nrecall: {rec:.2f}\n")
+    f1 = f1_score(Ytest, pred)
+    print(f"accuracy: {acc:.2f}\nprecision: {pre:.2f}\nrecall: {rec:.2f}\nfscore: {f1:.2f}\n")

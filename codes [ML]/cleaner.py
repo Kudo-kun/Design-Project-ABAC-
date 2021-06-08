@@ -1,6 +1,13 @@
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("-i", type=str, help="ACM file")
+parser.add_argument("-o", type=str, help="cleaned file")
+args = parser.parse_args()
+
 UA, OA = [], []
 total_rules = 0
-with open("ACM.txt", 'r') as f:
+with open(args.i, 'r') as f:
     for line in f.readlines():
         total_rules += 1
         (ua, oa, _) = line.split(';')
@@ -18,9 +25,9 @@ OAD = {k: v for v, k in enumerate(list(set(OA)))}
 
 rows = []
 pos = 0
-fun = lambda x : ("year-{}".format(x) if x.isnumeric() else x)
+fun = lambda x : (f"year-{x}" if x.isnumeric() else x)
 
-with open("ACM.txt", 'r') as f:
+with open(args.i, 'r') as f:
     for line in f.readlines():
         (ua, oa, p) = line.split(';')
         pos += (1 if p == "1\n" else 0)
@@ -29,7 +36,7 @@ with open("ACM.txt", 'r') as f:
         row = f"{','.join(ua)};{','.join(oa)};{p}"
         rows.append(row)
 
-with open("final_data.txt", 'w') as f:
+with open(args.o, 'w') as f:
     f.write(''.join(rows))
 
 neg = total_rules-pos

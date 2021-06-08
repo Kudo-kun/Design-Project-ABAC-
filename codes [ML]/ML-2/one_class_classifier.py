@@ -1,10 +1,13 @@
+import argparse
 from numpy import array
-import matplotlib.pyplot as plt
 from ml_models import Classifier
-from sklearn.manifold import TSNE
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score, precision_score, recall_score
-plt.style.use("ggplot")
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+
+parser = argparse.ArgumentParser()
+parser.add_argument("-i", type=str, help="input file for classification")
+args = parser.parse_args()
+
 
 def data_preprocessor(fname):
     uvs, ovs, Np = 16, 20, 1
@@ -24,40 +27,11 @@ def data_preprocessor(fname):
     return (array(X), array(Y))
 
 
-X, Y = data_preprocessor("final_data.txt")
-
-#----------------------------------------------------------------#
-tsne = TSNE(n_components=3)
-tsne_obj = tsne.fit_transform(X)
-ax = plt.figure(figsize=(16,10)).add_subplot(projection='3d')
-ax.scatter(xs=tsne_obj[:,0], 
-           ys=tsne_obj[:,1], 
-           zs=tsne_obj[:,2], 
-           c=Y, 
-           cmap="jet")
-
-ax.set_xlabel('pca-one')
-ax.set_ylabel('pca-two')
-ax.set_zlabel('pca-three')
-plt.show()
-
-tsne = TSNE(n_components=2)
-tsne_obj = tsne.fit_transform(X)
-plt.scatter(x=tsne_obj[:,0], 
-            y=tsne_obj[:,1], 
-            c=Y, 
-            cmap="jet")
-
-plt.xlabel('pca-one')
-plt.ylabel('pca-two')
-plt.show()
-
-#----------------------------------------------------------------#
-
-Xtrain, Xtest, Ytrain, Ytest = train_test_split(X, Y, test_size=0.2)
+X, Y = data_preprocessor(args.i)
+Xtrain, Xtest, Ytrain, Ytest = train_test_split(X, Y, test_size=0.3)
 Xtrain = Xtrain[Ytrain == 1]
 
-models = ["OCSVM", "IF", "EE"]
+models = ["OCSVM", "IF"]
 for model in models:
     print(f"[INFO] Training model: {model}")
     clf = Classifier(model)
@@ -66,4 +40,5 @@ for model in models:
     acc = accuracy_score(Ytest, pred)
     pre = precision_score(Ytest, pred)
     rec = recall_score(Ytest, pred)
-    print(f"accuracy: {acc:.2f}\nprecision: {pre:.2f}\nrecall: {rec:.2f}")
+    f1 = f1_score(Ytest, pred)
+    print(f"accuracy: {acc:.2f}\nprecision: {pre:.2f}\nrecall: {rec:.2f}\nfscore: {f1:.2f}\n")

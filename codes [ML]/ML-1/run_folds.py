@@ -1,16 +1,19 @@
+import argparse
 from numpy import array
 from ml_models import Classifier
 from matplotlib import pyplot as plt
 from sklearn.model_selection import KFold
-from sklearn.metrics import accuracy_score, precision_score, recall_score
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 plt.style.use("ggplot")
 
+parser = argparse.ArgumentParser()
+parser.add_argument("-i", type=str, help="input file for classification")
+args = parser.parse_args()
 
 def data_preprocessor(fname):
     uvs, ovs, Np = 16, 20, 1
     with open(fname, 'r') as f:
         rules = f.read().split('\n')
-        f.close()
 
     X,  Y = [], []
     for rule in rules:
@@ -33,9 +36,8 @@ def box_plot(scores, title, folds, labels):
 
 
 models = ["SVM", "LR", "NB", "DT", "RF", "xgboost", "gradboost", "adaboost", "MLP"]
-X, Y = data_preprocessor("final_data.txt")
-dataset_size = X.shape[0]
-accuracies, precisions, recalls = [], [], []
+X, Y = data_preprocessor(args.i)
+accuracies, precisions, recalls, fscores = [], [], [], []
 
 
 for model in models:
@@ -45,7 +47,8 @@ for model in models:
     current_model_acc = []
     current_model_pre = []
     current_model_rec = []
-    avg_acc, avg_pre, avg_rec, fold = 0, 0, 0, 0
+    current_model_f1 = []
+    avg_acc, avg_pre, avg_rec, avg_f1, fold = 0, 0, 0, 0, 0
     
     for (fold, (train, test)) in enumerate(kfold_gen, 1):
         classifier.fit(X[train], Y[train])
@@ -53,24 +56,31 @@ for model in models:
         acc = accuracy_score(Y[test], ypred)
         pre = precision_score(Y[test], ypred)
         rec = recall_score(Y[test], ypred)
-        print("[INFO] Training on fold-%d | accuracy: %.3f | precision: %.3f | recall %.3f |" % (fold, acc, pre, rec))
+        f1 = f1_score(Y[test], ypred)
+        print(f"[INFO] Training on fold-{fold} | accuracy: {acc:.2f} | precision: {pre:.2f} | recall: {rec:.2f} | fscore: {f1:.2f}")
         
         current_model_acc.append(acc)
         current_model_pre.append(pre)
         current_model_rec.append(rec)
+        current_model_f1.append(f1)
         avg_acc += acc
         avg_rec += rec
         avg_pre += pre
+        avg_f1 += f1
     
+    avg_f1 /= f1
     avg_acc /= fold
     avg_rec /= fold
     avg_pre /= fold
-    print("[INFO] Average accuracy, precision, recall over all %d-fold: %.3f, %.3f, %.3f\n" % (fold, avg_acc, avg_pre, avg_rec))
+    print(f"[INFO] Average accuracy, precision, recall, fscore over all {fold}-folds: {avg_acc:.2f}, {avg_pre:.2f}, {avg_rec:.2f}, {avg_f1:.2f}\n")
+    
     accuracies.append(current_model_acc)
     precisions.append(current_model_pre)
     recalls.append(current_model_rec)
-
+    fscores.append(current_model_f1)
     
+
 box_plot(scores=accuracies, title="accuracy", folds=fold, labels=models)
 box_plot(scores=precisions, title="precisions", folds=fold, labels=models)
 box_plot(scores=recalls, title="recall", folds=fold, labels=models)
+box_plot(scores=fscores, title="fscore", folds=fold, labels=models)
