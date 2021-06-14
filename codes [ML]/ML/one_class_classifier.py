@@ -1,40 +1,40 @@
 import argparse
-from numpy import array
-from ml_models import Classifier
+import numpy as np
+from sklearn.svm import OneClassSVM
+from sklearn.ensemble import IsolationForest
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-i", type=str, help="input file for classification")
 args = parser.parse_args()
 
+models_dict = {
+    "OneClassCSVM": OneClassSVM(),
+    "IsolationForest": IsolationForest(n_jobs=-1)
+}
 
 def data_preprocessor(fname):
-    uvs, ovs, Np = 16, 20, 1
     with open(fname, 'r') as f:
         rules = f.read().split('\n')
 
     X,  Y = [], []
     for rule in rules:
         (UA, OA, P) = rule.split(';')
-        temp_u, temp_o = [0]*uvs, [0]*ovs
-        for i in UA.split(','):
-            temp_u[int(i)] = 1
-        for i in OA.split(','):
-            temp_o[int(i)] = 1
-        X.append(temp_u + temp_o)
+        UA = list(map(int, UA.split(',')))
+        OA = list(map(int, OA.split(',')))
+        X.append(UA + OA)
         Y.append(-1 if not int(P) else 1)
-    return (array(X), array(Y))
+    return (np.array(X), np.array(Y))
 
 
 X, Y = data_preprocessor(args.i)
-Xtrain, Xtest, Ytrain, Ytest = train_test_split(X, Y, test_size=0.3)
+Xtrain, Xtest, Ytrain, Ytest = train_test_split(X, Y, test_size=0.2)
 Xtrain = Xtrain[Ytrain == 1]
 
-models = ["OCSVM", "IF"]
-for model in models:
-    print(f"[INFO] Training model: {model}")
-    clf = Classifier(model)
+for (name, clf) in models_dict.items():
+    print(f"[INFO] Training model: {name}")
     clf.fit(Xtrain)
     pred = clf.predict(Xtest)
     acc = accuracy_score(Ytest, pred)
