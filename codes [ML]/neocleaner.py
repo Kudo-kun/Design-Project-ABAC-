@@ -18,7 +18,7 @@ with open(args.i, 'r') as f:
         p = [p.strip()]
         line = ua + oa + p
         content.append(line)
-        n, m = len(ua), len(oa)
+    n, m = len(ua), len(oa)
 
 df = pd.DataFrame(content)
 df = df.apply(LabelEncoder().fit_transform)
@@ -34,5 +34,5 @@ for (u, o, p) in zip(ua_list, oa_list, p_list):
     row = f"{','.join(f(u))};{','.join(f(o))};{str(p)}"
     rows.append(row)
 
-with open(args.o, 'w') as f:
+with open(f"./ML/{args.o}", 'w') as f:
     f.write('\n'.join(rows))

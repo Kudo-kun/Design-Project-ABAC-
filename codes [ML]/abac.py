@@ -1,12 +1,6 @@
 from csv import reader
 import numpy as np
 from time import time
-import argparse
-
-parser = argparse.ArgumentParser()
-parser.add_argument("-i", type=str, help="input file for rules")
-parser.add_argument("-o", type=str, help="ACM file")
-args = parser.parse_args()
 
 with open("sub_data.csv", 'r') as f:
     u_reader = reader(f)
@@ -16,7 +10,7 @@ with open("obj_data.csv", 'r') as f:
     o_reader = reader(f)
     obj_data = list(o_reader)
 
-with open(args.i, 'r') as f:
+with open("pol_data-v3.csv", 'r') as f:
     r_reader = reader(f)
     pol_data = list(r_reader)
 
@@ -48,7 +42,7 @@ for i in range(1, len(sub_data)):
         training_data.append(curr_row)
 
 training_data = list(set(training_data))
-with open(args.o, 'w') as f:
+with open("ACM-v3.txt", 'w') as f:
     f.write('\n'.join(training_data))
 
 print(f"Runtime of the program is {time() - start}")
