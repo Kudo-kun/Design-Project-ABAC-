@@ -1,0 +1,143 @@
+[INFO] Training model: SupportVectorMachine
+accuracy: 0.92
+precision: 0.74
+recall: 0.69
+fscore: 0.72
+
+----------------------------------------------
+
+[INFO] Training model: LogisticRegression
+accuracy: 0.81
+precision: 0.42
+recall: 0.73
+fscore: 0.54
+
+----------------------------------------------
+
+[INFO] Training model: ArtificalNeuralNetwork
+accuracy: 0.98
+precision: 0.88
+recall: 0.97
+fscore: 0.92
+
+----------------------------------------------
+
+[INFO] Training model: DecisionTree
+accuracy: 0.97
+precision: 0.89
+recall: 0.88
+fscore: 0.89
+
+       features  feature_importance
+2      U-Degree            0.005945
+7        O-Year            0.012923
+3        U-Year            0.014423
+6      O-Degree            0.019498
+5  O-Department            0.091205
+1  U-Department            0.230737
+4          Type            0.268821
+0   Designation            0.356448
+----------------------------------------------
+
+[INFO] Training model: ExtraTree
+accuracy: 0.87
+precision: 0.55
+recall: 0.56
+fscore: 0.56
+
+       features  feature_importance
+6      O-Degree            0.006802
+0   Designation            0.012131
+7        O-Year            0.018196
+3        U-Year            0.025851
+1  U-Department            0.121440
+5  O-Department            0.133175
+4          Type            0.325502
+2      U-Degree            0.356904
+----------------------------------------------
+
+[INFO] Training model: RandomForest
+accuracy: 0.96
+precision: 0.88
+recall: 0.84
+fscore: 0.86
+
+       features  feature_importance
+6      O-Degree            0.012698
+7        O-Year            0.020337
+2      U-Degree            0.121626
+0   Designation            0.125622
+1  U-Department            0.132118
+5  O-Department            0.137818
+3        U-Year            0.144831
+4          Type            0.304951
+----------------------------------------------
+
+[INFO] Training model: ExtraTrees
+accuracy: 0.94
+precision: 0.91
+recall: 0.64
+fscore: 0.75
+
+       features  feature_importance
+6      O-Degree            0.013386
+7        O-Year            0.020223
+0   Designation            0.120995
+1  U-Department            0.123687
+3        U-Year            0.134965
+2      U-Degree            0.142275
+5  O-Department            0.143529
+4          Type            0.300941
+----------------------------------------------
+
+[INFO] Training model: XGBoost
+accuracy: 1.00
+precision: 1.00
+recall: 0.98
+fscore: 0.99
+
+       features  feature_importance
+7        O-Year            0.008956
+3        U-Year            0.016885
+6      O-Degree            0.025198
+2      U-Degree            0.031590
+5  O-Department            0.066502
+1  U-Department            0.117456
+4          Type            0.204244
+0   Designation            0.529168
+----------------------------------------------
+
+[INFO] Training model: AdaBoost
+accuracy: 0.84
+precision: 0.48
+recall: 0.91
+fscore: 0.63
+
+       features  feature_importance
+6      O-Degree                0.02
+2      U-Degree                0.03
+0   Designation                0.06
+5  O-Department                0.07
+7        O-Year                0.08
+1  U-Department                0.10
+3        U-Year                0.19
+4          Type                0.45
+----------------------------------------------
+
+[INFO] Training model: GradientBoosting
+accuracy: 1.00
+precision: 1.00
+recall: 1.00
+fscore: 1.00
+
+       features  feature_importance
+7        O-Year            0.006244
+6      O-Degree            0.013740
+5  O-Department            0.022684
+3        U-Year            0.039013
+0   Designation            0.040812
+1  U-Department            0.076811
+4          Type            0.363885
+2      U-Degree            0.436810
+----------------------------------------------
+

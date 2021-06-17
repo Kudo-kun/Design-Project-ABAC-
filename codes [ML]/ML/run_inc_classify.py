@@ -30,7 +30,9 @@ def data_preprocessor(fname):
 
 
 df = data_preprocessor(args.i)
-mask = (df["O-Degree"] != 1)
+# mask = (df["Type"] != 2)
+# mask = (df["O-Year"] != 1) & (df["U-Year"] != 1)
+# mask = (df["O-Degree"] != 1) & (df["U-Degree"] != 1)
 df_train = df[mask]
 df_test = df[~mask]
 

@@ -32,17 +32,24 @@ for i in range(1, len(sub_data)):
                 acm[i-1][j-1] = 1
                 break
 
-total_rules = len(sub_data)*len(obj_data)
-print(f"Percentatge of +ve rules: {np.sum(acm)/total_rules}")
+neg_count, pos_count = 0, 0
 for i in range(1, len(sub_data)):
     for j in range(1, len(obj_data)):
+        p = int(acm[i-1][j-1])
         temp_sub = ','.join(sub_data[i])
         temp_obj = ','.join(obj_data[j])
-        curr_row = f"{temp_sub};{temp_obj};{int(acm[i-1][j-1])}"
-        training_data.append(curr_row)
+        curr_row = f"{temp_sub};{temp_obj};{p}"
+        if ("mtech,3" not in curr_row) and ("mtech,4" not in curr_row):
+            training_data.append(curr_row)
+            if not p:
+                neg_count += 1
+            else:
+                pos_count += 1
+
 
 training_data = list(set(training_data))
 with open("ACM-v3.txt", 'w') as f:
     f.write('\n'.join(training_data))
 
+print(f"Percentage of +ve rules: {pos_count/(pos_count + neg_count)}")
 print(f"Runtime of the program is {time() - start}")

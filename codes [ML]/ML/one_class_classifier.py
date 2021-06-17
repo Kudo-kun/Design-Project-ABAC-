@@ -3,7 +3,7 @@ import numpy as np
 from sklearn.svm import OneClassSVM
 from sklearn.ensemble import IsolationForest
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
 
 
 parser = argparse.ArgumentParser()
@@ -31,7 +31,9 @@ def data_preprocessor(fname):
 
 X, Y = data_preprocessor(args.i)
 Xtrain, Xtest, Ytrain, Ytest = train_test_split(X, Y, test_size=0.2)
-Xtrain = Xtrain[Ytrain == 1]
+# minority class is the outlier
+# train with majority class
+Xtrain = Xtrain[Ytrain == -1]
 
 for (name, clf) in models_dict.items():
     print(f"[INFO] Training model: {name}")
@@ -41,4 +43,6 @@ for (name, clf) in models_dict.items():
     pre = precision_score(Ytest, pred)
     rec = recall_score(Ytest, pred)
     f1 = f1_score(Ytest, pred)
+    conf_mat = confusion_matrix(Ytest, pred)
+    print(conf_mat)
     print(f"accuracy: {acc:.2f}\nprecision: {pre:.2f}\nrecall: {rec:.2f}\nfscore: {f1:.2f}\n")
