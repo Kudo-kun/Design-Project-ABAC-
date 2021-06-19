@@ -18,8 +18,8 @@ def data_preprocessor(fname):
     return (np.array(X), np.array(Y))
 
 
-Xtrain, Ytrain = data_preprocessor("abac-v12.txt")
-Xtest, Ytest = data_preprocessor("abac-v3.txt")
+Xtrain, Ytrain = data_preprocessor("abac-cat-v3.txt")
+Xtest, Ytest = data_preprocessor("test.txt")
 Xtrain, Ytrain = RandomOverSampler().fit_resample(Xtrain, Ytrain)
 
 for (name, clf) in models_dict.items():
