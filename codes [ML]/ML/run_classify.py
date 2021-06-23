@@ -26,7 +26,7 @@ def data_preprocessor(fname):
 
 X, Y = data_preprocessor(args.i)
 Xtrain, Xtest, Ytrain, Ytest = train_test_split(X, Y, test_size=0.2)
-Xtrain, Ytrain = RandomOverSampler().fit_resample(Xtrain, Ytrain)
+# Xtrain, Ytrain = RandomOverSampler().fit_resample(Xtrain, Ytrain)
 
 for (name, clf) in models_dict.items():
     print(f"[INFO] Training model: {name}")

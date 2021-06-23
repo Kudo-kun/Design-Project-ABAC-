@@ -7,7 +7,7 @@ from sklearn.tree import DecisionTreeClassifier, ExtraTreeClassifier
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier, AdaBoostClassifier, ExtraTreesClassifier
 
 models_dict = {
-    "SupportVectorMachine": SVC(kernel="rbf"),
+    "SupportVectorMachine": SVC(kernel="linear"),
     "LogisticRegression": LogisticRegression(solver="saga", n_jobs=-1),
     "ArtificalNeuralNetwork": MLPClassifier(hidden_layer_sizes=30, max_iter=1500),
     "DecisionTree": DecisionTreeClassifier(),
