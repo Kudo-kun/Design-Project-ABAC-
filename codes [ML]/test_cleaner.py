@@ -13,10 +13,11 @@ with open(args.i, 'r') as f:
     lines = f.read().split('\n')[1:]
 
 for line in lines:
-    arr = line.split(',')
-    ua, oa, p = arr[:4], arr[4:-1], arr[-1]
-    line = f"{','.join(fun(ua))};{','.join(fun(oa))};{p}"
-    content.append(line)
+    arr = line.strip().split(',')
+    if len(line) > 0:
+        ua, oa, p = arr[:4], arr[4:-1], arr[-1]
+        line = f"{','.join(fun(ua))};{','.join(fun(oa))};{p}"
+        content.append(line)
 
 with open(f"./ML/{args.o}", 'w') as f:
     f.write('\n'.join(content))

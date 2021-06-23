@@ -1,10 +1,9 @@
 import numpy as np
 from ml_models import models_dict
-from imblearn.over_sampling import RandomOverSampler
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
 
-def data_preprocessor(fname):
+def data_preprocessor(fname, modify=None):
     with open(fname, 'r') as f:
         rules = f.read().split('\n')
 
@@ -13,55 +12,27 @@ def data_preprocessor(fname):
         (UA, OA, P) = rule.split(';')
         UA = list(map(int, UA.split(',')))
         OA = list(map(int, OA.split(',')))
-        X.append(UA + OA)
-        Y.append(int(P))
-    return (np.array(X), np.array(Y))
-
-
-def data_preprocessor_extend(fname):
-    with open(fname, 'r') as f:
-        rules = f.read().split('\n')
-
-    X, Y = [], []
-    for rule in rules:
-        (UA, OA, P) = rule.split(';')
-        UA = list(map(int, UA.split(',')))
-        OA = list(map(int, OA.split(',')))
-        extn = [0, 0, 0]
-        extn[0] = int(UA[1] == OA[1])
-        extn[1] = int(UA[2] == OA[2])
-        extn[2] = int(UA[3] == OA[3])
-        X.append(UA + OA + extn)
-        Y.append(int(P))
-    return (np.array(X), np.array(Y))
-
-
-def data_preprocessor_condense(fname):
-    with open(fname, 'r') as f:
-        rules = f.read().split('\n')
-
-    X, Y = [], []
-    for rule in rules:
-        (UA, OA, P) = rule.split(';')
-        UA = list(map(int, UA.split(',')))
-        OA = list(map(int, OA.split(',')))
-        extn = [0, 0, 0]
-        extn[0] = int(UA[1] == OA[1])
-        extn[1] = int(UA[2] == OA[2])
-        extn[2] = int(UA[3] == OA[3])
-        X.append([UA[0], OA[0]] + extn)
+        if modify is None:
+            X.append(UA + OA)
+        elif modify == "extend":
+            extn = [0, 0, 0]
+            extn[0] = int(UA[1] == OA[1])
+            extn[1] = int(UA[2] == OA[2])
+            extn[2] = int(UA[3] == OA[3])
+            X.append(UA + OA + extn)
+        elif modify == "compress":
+            extn = [0, 0, 0]
+            extn[0] = int(UA[1] == OA[1])
+            extn[1] = int(UA[2] == OA[2])
+            extn[2] = int(UA[3] == OA[3])
+            X.append([UA[0], OA[0]] + extn)
         Y.append(int(P))
     return (np.array(X), np.array(Y))
 
 
 
-
-# Xtrain, Ytrain = data_preprocessor_extend("abac-cat-v3.txt")
-# Xtest, Ytest = data_preprocessor_extend("test.txt")
-
-Xtrain, Ytrain = data_preprocessor_condense("abac-cat-v3.txt")
-Xtest, Ytest = data_preprocessor_condense("test.txt")
-# Xtrain, Ytrain = RandomOverSampler().fit_resample(Xtrain, Ytrain)
+Xtrain, Ytrain = data_preprocessor("abac-cat-v1.txt", "compress")
+Xtest, Ytest = data_preprocessor("test-v1.txt", "compress")
 
 for (name, clf) in models_dict.items():
     print(f"[INFO] Training model: {name}")

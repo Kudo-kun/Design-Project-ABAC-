@@ -1,0 +1,66 @@
+[INFO] Training model: SupportVectorMachine
+accuracy: 0.40
+precision: 0.00
+recall: 0.00
+fscore: 0.00
+
+[INFO] Training model: LogisticRegression
+accuracy: 0.93
+precision: 0.94
+recall: 0.94
+fscore: 0.94
+
+[INFO] Training model: ArtificalNeuralNetwork
+accuracy: 0.87
+precision: 0.99
+recall: 0.79
+fscore: 0.88
+
+[INFO] Training model: DecisionTree
+accuracy: 0.08
+precision: 0.11
+recall: 0.08
+fscore: 0.09
+
+[INFO] Training model: ExtraTree
+accuracy: 0.55
+precision: 0.99
+recall: 0.25
+fscore: 0.40
+
+[INFO] Training model: RandomForest
+accuracy: 0.37
+precision: 0.15
+recall: 0.01
+fscore: 0.02
+
+[INFO] Training model: ExtraTrees
+accuracy: 0.40
+precision: 0.00
+recall: 0.00
+fscore: 0.00
+
+[INFO] Training model: XGBoost
+accuracy: 0.08
+precision: 0.11
+recall: 0.08
+fscore: 0.09
+
+[INFO] Training model: LightGBM
+accuracy: 0.08
+precision: 0.11
+recall: 0.08
+fscore: 0.09
+
+[INFO] Training model: AdaBoost
+accuracy: 0.47
+precision: 0.77
+recall: 0.15
+fscore: 0.26
+
+[INFO] Training model: GradientBoosting
+accuracy: 0.34
+precision: 0.10
+recall: 0.01
+fscore: 0.02
+
