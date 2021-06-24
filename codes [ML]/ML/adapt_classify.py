@@ -31,8 +31,8 @@ def data_preprocessor(fname, modify=None):
 
 
 
-Xtrain, Ytrain = data_preprocessor("abac-cat-v1.txt")
-Xtest, Ytest = data_preprocessor("test-v1.txt")
+Xtrain, Ytrain = data_preprocessor("abac-cat-v1.txt", "compress")
+Xtest, Ytest = data_preprocessor("test-v1.txt", "compress")
 
 for (name, clf) in models_dict.items():
     print(f"[INFO] Training model: {name}")

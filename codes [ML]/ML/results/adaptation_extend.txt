@@ -1,8 +1,8 @@
 [INFO] Training model: SupportVectorMachine
-accuracy: 0.40
-precision: 0.00
-recall: 0.00
-fscore: 0.00
+accuracy: 0.92
+precision: 0.94
+recall: 0.92
+fscore: 0.93
 
 [INFO] Training model: LogisticRegression
 accuracy: 0.93
@@ -11,28 +11,28 @@ recall: 0.94
 fscore: 0.94
 
 [INFO] Training model: ArtificalNeuralNetwork
-accuracy: 0.87
-precision: 0.99
-recall: 0.79
-fscore: 0.88
+accuracy: 0.43
+precision: 0.89
+recall: 0.04
+fscore: 0.08
 
 [INFO] Training model: DecisionTree
-accuracy: 0.08
-precision: 0.11
-recall: 0.08
-fscore: 0.09
+accuracy: 0.32
+precision: 0.08
+recall: 0.01
+fscore: 0.02
 
 [INFO] Training model: ExtraTree
 accuracy: 0.55
-precision: 0.99
-recall: 0.25
-fscore: 0.40
+precision: 1.00
+recall: 0.24
+fscore: 0.39
 
 [INFO] Training model: RandomForest
-accuracy: 0.37
-precision: 0.15
-recall: 0.01
-fscore: 0.02
+accuracy: 0.42
+precision: 1.00
+recall: 0.02
+fscore: 0.04
 
 [INFO] Training model: ExtraTrees
 accuracy: 0.40
