@@ -1,6 +1,8 @@
 import numpy as np
 from csv import writer
 from ml_models import models_dict
+from sklearn.tree import plot_tree
+import matplotlib.pyplot as plt
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
 
@@ -58,5 +60,7 @@ for (name, clf) in models_dict.items():
     pred = clf.predict(Xtest)
     score(Ytrain, clf.predict(Xtrain), label="training metrics")
     score(Ytest, pred, label="testing metrics")
-    print("-"*60)
     record_misclassifications(Xtest.tolist(), Ytest, pred, fname=name)
+    # if name == "DecisionTree" or name == "ExtraTree":
+    #     plot_tree(clf, filled=True)
+    #     plt.show()

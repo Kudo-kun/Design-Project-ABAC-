@@ -1,5 +1,4 @@
-Designation,Department,Degree,Year,Type,Department,Degree,Year
-stu,IT,btech,1,asgn,IT,btech,1,1
+Designation,Department,Degree,Year,Type,Department,Degree,Year,Perm
 stu,eni,btech,1,asgn,eni,btech,1,1
 stu,pha,btech,1,asgn,pha,btech,1,1
 stu,chem,btech,1,asgn,chem,btech,1,1
@@ -268,7 +267,6 @@ stu,IT,btech,1,asgn,me,btech,1,0
 stu,IT,btech,1,asgn,me,btech,2,0
 stu,IT,btech,1,asgn,me,btech,3,0
 stu,IT,btech,1,asgn,me,btech,4,0
-stu,IT,btech,1,asgn,IT,btech,1,0
 stu,IT,btech,1,asgn,IT,btech,2,0
 stu,IT,btech,1,asgn,IT,btech,3,0
 stu,IT,btech,1,asgn,IT,btech,4,0
@@ -403,7 +401,6 @@ stu,chem,btech,1,asgn,me,btech,1,0
 stu,chem,btech,1,asgn,me,btech,2,0
 stu,chem,btech,1,asgn,me,btech,3,0
 stu,chem,btech,1,asgn,me,btech,4,0
-stu,chem,btech,1,asgn,chem,btech,1,0
 stu,chem,btech,1,asgn,chem,btech,2,0
 stu,chem,btech,1,asgn,chem,btech,3,0
 stu,chem,btech,1,asgn,chem,btech,4,0
@@ -474,7 +471,6 @@ stu,pha,btech,1,asgn,me,btech,1,0
 stu,pha,btech,1,asgn,me,btech,2,0
 stu,pha,btech,1,asgn,me,btech,3,0
 stu,pha,btech,1,asgn,me,btech,4,0
-stu,pha,btech,1,asgn,pha,btech,1,0
 stu,pha,btech,1,asgn,pha,btech,2,0
 stu,pha,btech,1,asgn,pha,btech,3,0
 stu,pha,btech,1,asgn,pha,btech,4,0
@@ -545,7 +541,6 @@ stu,eni,btech,1,asgn,me,btech,1,0
 stu,eni,btech,1,asgn,me,btech,2,0
 stu,eni,btech,1,asgn,me,btech,3,0
 stu,eni,btech,1,asgn,me,btech,4,0
-stu,eni,btech,1,asgn,eni,btech,1,0
 stu,eni,btech,1,asgn,eni,btech,2,0
 stu,eni,btech,1,asgn,eni,btech,3,0
 stu,eni,btech,1,asgn,eni,btech,4,0
