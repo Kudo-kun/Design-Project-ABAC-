@@ -6,38 +6,38 @@ recall: 0.74
 fscore: 0.67
 
 testing metrics:
-accuracy: 0.92
-precision: 0.94
-recall: 0.92
-fscore: 0.93
+accuracy: 0.85
+precision: 1.00
+recall: 0.76
+fscore: 0.86
 
 ------------------------------------------------------------
 [INFO] Training model: LogisticRegression
 training metrics:
 accuracy: 0.92
-precision: 0.70
-recall: 0.52
-fscore: 0.60
+precision: 0.68
+recall: 0.70
+fscore: 0.69
 
 testing metrics:
-accuracy: 0.92
-precision: 0.94
-recall: 0.92
-fscore: 0.93
+accuracy: 0.58
+precision: 1.00
+recall: 0.30
+fscore: 0.46
 
 ------------------------------------------------------------
 [INFO] Training model: ArtificalNeuralNetwork
 training metrics:
-accuracy: 0.95
-precision: 0.82
-recall: 0.71
-fscore: 0.76
+accuracy: 0.97
+precision: 0.83
+recall: 0.92
+fscore: 0.87
 
 testing metrics:
-accuracy: 0.62
-precision: 0.97
-recall: 0.38
-fscore: 0.54
+accuracy: 0.82
+precision: 0.95
+recall: 0.74
+fscore: 0.83
 
 ------------------------------------------------------------
 [INFO] Training model: DecisionTree
@@ -48,10 +48,10 @@ recall: 1.00
 fscore: 1.00
 
 testing metrics:
-accuracy: 0.32
-precision: 0.08
-recall: 0.01
-fscore: 0.02
+accuracy: 0.97
+precision: 0.97
+recall: 0.99
+fscore: 0.98
 
 ------------------------------------------------------------
 [INFO] Training model: ExtraTree
@@ -62,10 +62,10 @@ recall: 1.00
 fscore: 1.00
 
 testing metrics:
-accuracy: 0.25
-precision: 0.12
-recall: 0.04
-fscore: 0.06
+accuracy: 0.87
+precision: 0.95
+recall: 0.82
+fscore: 0.88
 
 ------------------------------------------------------------
 [INFO] Training model: RandomForest
@@ -76,10 +76,10 @@ recall: 1.00
 fscore: 1.00
 
 testing metrics:
-accuracy: 0.33
-precision: 0.09
-recall: 0.01
-fscore: 0.02
+accuracy: 0.49
+precision: 0.84
+recall: 0.17
+fscore: 0.29
 
 ------------------------------------------------------------
 [INFO] Training model: ExtraTrees
@@ -90,10 +90,10 @@ recall: 1.00
 fscore: 1.00
 
 testing metrics:
-accuracy: 0.34
-precision: 0.00
-recall: 0.00
-fscore: 0.00
+accuracy: 0.91
+precision: 0.95
+recall: 0.89
+fscore: 0.92
 
 ------------------------------------------------------------
 [INFO] Training model: XGBoost
@@ -104,10 +104,10 @@ recall: 1.00
 fscore: 1.00
 
 testing metrics:
-accuracy: 0.08
-precision: 0.11
-recall: 0.08
-fscore: 0.09
+accuracy: 0.88
+precision: 0.96
+recall: 0.83
+fscore: 0.89
 
 ------------------------------------------------------------
 [INFO] Training model: LightGBM
@@ -118,37 +118,37 @@ recall: 0.97
 fscore: 0.98
 
 testing metrics:
-accuracy: 0.08
-precision: 0.11
-recall: 0.08
-fscore: 0.09
+accuracy: 0.86
+precision: 0.98
+recall: 0.79
+fscore: 0.87
 
 ------------------------------------------------------------
 [INFO] Training model: AdaBoost
 training metrics:
 accuracy: 0.93
-precision: 0.75
+precision: 0.76
 recall: 0.64
-fscore: 0.69
+fscore: 0.70
 
 testing metrics:
-accuracy: 0.48
+accuracy: 0.85
 precision: 1.00
-recall: 0.13
-fscore: 0.22
+recall: 0.75
+fscore: 0.86
 
 ------------------------------------------------------------
 [INFO] Training model: GradientBoosting
 training metrics:
 accuracy: 0.97
-precision: 1.00
-recall: 0.71
-fscore: 0.83
+precision: 0.95
+recall: 0.76
+fscore: 0.84
 
 testing metrics:
-accuracy: 0.43
-precision: 0.62
+accuracy: 0.47
+precision: 0.94
 recall: 0.11
-fscore: 0.19
+fscore: 0.20
 
 ------------------------------------------------------------

@@ -22,7 +22,7 @@ def data_preprocessor(fname):
     return (np.array(X), np.array(Y))
 
 
-Xtrain, Ytrain = data_preprocessor("abac-cat-v1.txt")
+Xtrain, Ytrain = data_preprocessor("abac-cat-corrected-v1.txt")
 Xtest, Ytest = data_preprocessor("test-v1.txt")
 Xtrain = Xtrain[Ytrain == 1]
 
