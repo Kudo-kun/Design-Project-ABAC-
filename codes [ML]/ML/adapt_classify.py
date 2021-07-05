@@ -1,7 +1,6 @@
 import numpy as np
 from csv import writer
 from ml_models import models_dict
-from sklearn.tree import plot_tree
 import matplotlib.pyplot as plt
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
@@ -43,7 +42,15 @@ def score(Ytest, pred, label):
 
 def record_misclassifications(Xtest, Ytest, pred, fname):
     fields = ["Designation", "Department", "Degree", "Year", "Type", "Department", "Degree", "Year", "True_Perm", "Pred_Perm"]
-    misclassified_pts = [(x + [t] + [y]) for (x, t, y) in zip(Xtest, Ytest, pred) if (y != t)]
+    LUT = [["X", "stu", "prof", "officer", "vis_prof", "adj_prof"],
+           ["X", "cse", "ece", "me", "ce", "accounts", "IT", "eni", "pha", "chem"],
+           ["X", "btech", "mtech", "BE", "ME", "NA"],
+           ["X", "1", "2", "3", "4", "NA"],
+           ["X", "asgn", "q_pr", "std_mat", "attdn", "grade_book", "stu_rec", "off_rec", "quiz", "proj", "dept_bud"]]
+    f = lambda row: [LUT[0][row[0]], LUT[1][row[1]], LUT[2][row[2]], LUT[3][row[3]], 
+                     LUT[4][row[4]], LUT[1][row[5]], LUT[2][row[6]], LUT[3][row[7]]]
+
+    misclassified_pts = [(f(x) + [t] + [y]) for (x, t, y) in zip(Xtest, Ytest, pred) if (y != t)]
     with open(f"./results/{fname}_misclassications.csv", 'w') as csvfile:
         csv_writer = writer(csvfile)
         csv_writer.writerow(fields)
@@ -60,7 +67,5 @@ for (name, clf) in models_dict.items():
     pred = clf.predict(Xtest)
     score(Ytrain, clf.predict(Xtrain), label="training metrics")
     score(Ytest, pred, label="testing metrics")
-    record_misclassifications(Xtest.tolist(), Ytest, pred, fname=name)
-    # if name == "DecisionTree" or name == "ExtraTree":
-    #     plot_tree(clf, filled=True)
-    #     plt.show()
+    print("---------------------------------------------------")
+    # record_misclassifications(Xtest.tolist(), Ytest, pred, fname=name)
