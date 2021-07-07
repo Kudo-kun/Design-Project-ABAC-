@@ -10,7 +10,7 @@ from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier,
 models_dict = {
     "LinearDiscriminantAnalysis": LinearDiscriminantAnalysis(solver="svd"),
     "QuadraticDiscriminantAnalysis": QuadraticDiscriminantAnalysis(),
-    "SupportVectorMachine": SVC(kernel="linear"),
+    "SupportVectorMachine": SVC(kernel="poly", degree=5),
     "LogisticRegression": LogisticRegression(solver="saga", n_jobs=-1),
     "ArtificalNeuralNetwork": MLPClassifier(hidden_layer_sizes=30, max_iter=2000, solver="lbfgs"),
     "DecisionTree": DecisionTreeClassifier(),

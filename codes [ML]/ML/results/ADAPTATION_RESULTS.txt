@@ -28,16 +28,16 @@ fscore: 0.69
 ---------------------------------------------------
 [INFO] Training model: SupportVectorMachine
 training metrics:
-accuracy: 0.91
-precision: 0.62
-recall: 0.74
-fscore: 0.67
+accuracy: 0.95
+precision: 0.78
+recall: 0.76
+fscore: 0.77
 
 testing metrics:
-accuracy: 0.84
-precision: 0.97
-recall: 0.75
-fscore: 0.85
+accuracy: 0.72
+precision: 0.84
+recall: 0.64
+fscore: 0.73
 
 ---------------------------------------------------
 [INFO] Training model: LogisticRegression
@@ -62,10 +62,10 @@ recall: 1.00
 fscore: 1.00
 
 testing metrics:
-accuracy: 0.61
-precision: 0.96
-recall: 0.36
-fscore: 0.52
+accuracy: 0.76
+precision: 0.77
+recall: 0.84
+fscore: 0.80
 
 ---------------------------------------------------
 [INFO] Training model: DecisionTree
@@ -76,10 +76,10 @@ recall: 1.00
 fscore: 1.00
 
 testing metrics:
-accuracy: 0.88
-precision: 0.96
-recall: 0.83
-fscore: 0.89
+accuracy: 0.45
+precision: 0.78
+recall: 0.11
+fscore: 0.19
 
 ---------------------------------------------------
 [INFO] Training model: ExtraTree
@@ -90,10 +90,10 @@ recall: 1.00
 fscore: 1.00
 
 testing metrics:
-accuracy: 0.64
-precision: 0.81
-recall: 0.52
-fscore: 0.63
+accuracy: 0.85
+precision: 0.89
+recall: 0.85
+fscore: 0.87
 
 ---------------------------------------------------
 [INFO] Training model: RandomForest
@@ -104,10 +104,10 @@ recall: 1.00
 fscore: 1.00
 
 testing metrics:
-accuracy: 0.52
-precision: 0.89
-recall: 0.22
-fscore: 0.35
+accuracy: 0.50
+precision: 0.88
+recall: 0.19
+fscore: 0.31
 
 ---------------------------------------------------
 [INFO] Training model: ExtraTrees
@@ -160,10 +160,10 @@ recall: 0.64
 fscore: 0.70
 
 testing metrics:
-accuracy: 0.66
+accuracy: 0.70
 precision: 1.00
-recall: 0.42
-fscore: 0.60
+recall: 0.49
+fscore: 0.66
 
 ---------------------------------------------------
 [INFO] Training model: GradientBoosting
