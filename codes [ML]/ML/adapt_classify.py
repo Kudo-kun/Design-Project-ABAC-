@@ -68,4 +68,4 @@ for (name, clf) in models_dict.items():
     score(Ytrain, clf.predict(Xtrain), label="training metrics")
     score(Ytest, pred, label="testing metrics")
     print("---------------------------------------------------")
-    # record_misclassifications(Xtest.tolist(), Ytest, pred, fname=name)
+    record_misclassifications(Xtest.tolist(), Ytest, pred, fname=name)
