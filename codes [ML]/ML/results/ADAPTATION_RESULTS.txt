@@ -56,16 +56,16 @@ fscore: 0.45
 ---------------------------------------------------
 [INFO] Training model: ArtificalNeuralNetwork
 training metrics:
-accuracy: 1.00
-precision: 1.00
-recall: 1.00
-fscore: 1.00
+accuracy: 0.98
+precision: 0.91
+recall: 0.96
+fscore: 0.94
 
 testing metrics:
-accuracy: 0.76
-precision: 0.77
-recall: 0.84
-fscore: 0.80
+accuracy: 0.84
+precision: 1.00
+recall: 0.73
+fscore: 0.84
 
 ---------------------------------------------------
 [INFO] Training model: DecisionTree
@@ -76,10 +76,10 @@ recall: 1.00
 fscore: 1.00
 
 testing metrics:
-accuracy: 0.45
-precision: 0.78
-recall: 0.11
-fscore: 0.19
+accuracy: 0.86
+precision: 0.94
+recall: 0.82
+fscore: 0.88
 
 ---------------------------------------------------
 [INFO] Training model: ExtraTree
@@ -90,10 +90,10 @@ recall: 1.00
 fscore: 1.00
 
 testing metrics:
-accuracy: 0.85
-precision: 0.89
-recall: 0.85
-fscore: 0.87
+accuracy: 0.88
+precision: 0.96
+recall: 0.83
+fscore: 0.89
 
 ---------------------------------------------------
 [INFO] Training model: RandomForest
@@ -104,10 +104,10 @@ recall: 1.00
 fscore: 1.00
 
 testing metrics:
-accuracy: 0.50
+accuracy: 0.51
 precision: 0.88
-recall: 0.19
-fscore: 0.31
+recall: 0.20
+fscore: 0.33
 
 ---------------------------------------------------
 [INFO] Training model: ExtraTrees
@@ -118,7 +118,7 @@ recall: 1.00
 fscore: 1.00
 
 testing metrics:
-accuracy: 0.88
+accuracy: 0.87
 precision: 0.95
 recall: 0.83
 fscore: 0.89
@@ -142,41 +142,55 @@ fscore: 0.89
 training metrics:
 accuracy: 1.00
 precision: 1.00
-recall: 0.97
-fscore: 0.98
+recall: 1.00
+fscore: 1.00
 
 testing metrics:
-accuracy: 0.87
-precision: 0.98
-recall: 0.79
-fscore: 0.87
+accuracy: 0.88
+precision: 0.97
+recall: 0.83
+fscore: 0.89
 
 ---------------------------------------------------
 [INFO] Training model: AdaBoost
 training metrics:
 accuracy: 0.93
-precision: 0.76
+precision: 0.75
 recall: 0.64
-fscore: 0.70
+fscore: 0.69
 
 testing metrics:
-accuracy: 0.70
-precision: 1.00
+accuracy: 0.69
+precision: 0.97
 recall: 0.49
-fscore: 0.66
+fscore: 0.65
+
+---------------------------------------------------
+[INFO] Training model: Bagging
+training metrics:
+accuracy: 1.00
+precision: 1.00
+recall: 1.00
+fscore: 1.00
+
+testing metrics:
+accuracy: 0.89
+precision: 0.97
+recall: 0.84
+fscore: 0.90
 
 ---------------------------------------------------
 [INFO] Training model: GradientBoosting
 training metrics:
 accuracy: 0.97
-precision: 0.95
+precision: 0.94
 recall: 0.76
 fscore: 0.84
 
 testing metrics:
-accuracy: 0.47
-precision: 0.94
-recall: 0.11
-fscore: 0.20
+accuracy: 0.86
+precision: 0.97
+recall: 0.78
+fscore: 0.86
 
 ---------------------------------------------------

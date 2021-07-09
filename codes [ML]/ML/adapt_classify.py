@@ -1,7 +1,6 @@
 import numpy as np
 from csv import writer
 from ml_models import models_dict
-import matplotlib.pyplot as plt
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
 
@@ -58,8 +57,8 @@ def record_misclassifications(Xtest, Ytest, pred, fname):
 
 
 
-Xtrain, Ytrain = data_preprocessor("abac-cat-corrected-v1.txt", "compress")
-Xtest, Ytest = data_preprocessor("test-v1.txt", "compress")
+Xtrain, Ytrain = data_preprocessor("abac-cat-corrected-v1.txt")
+Xtest, Ytest = data_preprocessor("test-v1.txt")
 
 for (name, clf) in models_dict.items():
     print(f"[INFO] Training model: {name}")
@@ -68,4 +67,4 @@ for (name, clf) in models_dict.items():
     score(Ytrain, clf.predict(Xtrain), label="training metrics")
     score(Ytest, pred, label="testing metrics")
     print("---------------------------------------------------")
-    # record_misclassifications(Xtest.tolist(), Ytest, pred, fname=name)
+    record_misclassifications(Xtest.tolist(), Ytest, pred, fname=name)
