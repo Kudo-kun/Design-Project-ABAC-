@@ -1,14 +1,8 @@
-# import argparse
 import numpy as np
 import pandas as pd
 from ml_models import models_dict
-# from imblearn.over_sampling import RandomOverSampler
-# from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
-# parser = argparse.ArgumentParser()
-# parser.add_argument("-i", type=str, help="input file for classification")
-# args = parser.parse_args()
 
 def data_preprocessor(fname):
     with open(fname, 'r') as f:
@@ -26,10 +20,6 @@ def data_preprocessor(fname):
 
 Xtrain, Ytrain = data_preprocessor("abac-cat-corrected-v1.txt")
 Xtest, Ytest = data_preprocessor("test-v1.txt")
-
-# X, Y = data_preprocessor(args.i)
-# Xtrain, Xtest, Ytrain, Ytest = train_test_split(X, Y, test_size=0.2)
-# Xtrain, Ytrain = RandomOverSampler().fit_resample(Xtrain, Ytrain)
 
 for (name, clf) in models_dict.items():
     print(f"[INFO] Training model: {name}")

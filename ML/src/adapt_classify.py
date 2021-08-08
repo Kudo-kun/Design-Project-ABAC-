@@ -57,8 +57,8 @@ def record_misclassifications(Xtest, Ytest, pred, fname):
 
 
 
-Xtrain, Ytrain = data_preprocessor("abac-cat-corrected-v1.txt")
-Xtest, Ytest = data_preprocessor("test-v1.txt")
+Xtrain, Ytrain = data_preprocessor("abac-cat-corrected-v2.txt")
+Xtest, Ytest = data_preprocessor("test-v2.txt")
 
 for (name, clf) in models_dict.items():
     print(f"[INFO] Training model: {name}")
