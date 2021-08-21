@@ -2,12 +2,14 @@ from sklearn.svm import SVC
 from xgboost import XGBClassifier
 from lightgbm import LGBMClassifier
 from sklearn.neural_network import MLPClassifier
+from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.tree import DecisionTreeClassifier, ExtraTreeClassifier
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis, QuadraticDiscriminantAnalysis
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier, AdaBoostClassifier, ExtraTreesClassifier, BaggingClassifier
 
 models_dict = {
+    "KNearestNeighbors": KNeighborsClassifier(n_neighbors=5, n_jobs=-1, weights="distance"),
     "LinearDiscriminantAnalysis": LinearDiscriminantAnalysis(),
     "QuadraticDiscriminantAnalysis": QuadraticDiscriminantAnalysis(),
     "SupportVectorMachine": SVC(kernel="poly", degree=5),
@@ -23,4 +25,3 @@ models_dict = {
     "Bagging": BaggingClassifier(n_estimators=128, n_jobs=-1, random_state=42),
     "GradientBoosting": GradientBoostingClassifier(n_estimators=128, learning_rate=1.0, random_state=42),
 }
-
