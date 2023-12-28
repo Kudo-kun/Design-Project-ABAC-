@@ -1,2 +1,18 @@
 # Design-Project (ABAC)
 Project work done under the guidance of [Dr. Barsha Mitra](https://universe.bits-pilani.ac.in/hyderabad/barshamitra/Profile) in the topic of _Policy Adaptation using ML techniques_.
+
+## Citation
+```bibtex
+@conference{secrypt22,
+  author={Varun Gumma. and Barsha Mitra. and Soumyadeep Dey. and Pratik Shashikantbhai Patel. and Sourabh Suman. and Saptarshi Das. and Jaideep Vaidya.},
+  title={PAMMELA: Policy Administration Methodology using Machine Learning},
+  booktitle={Proceedings of the 19th International Conference on Security and Cryptography - SECRYPT},
+  year={2022},
+  pages={147-157},
+  publisher={SciTePress},
+  organization={INSTICC},
+  doi={10.5220/0011272400003283},
+  isbn={978-989-758-590-6},
+  issn={2184-7711},
+}
+```
